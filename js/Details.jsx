@@ -1,13 +1,22 @@
+/* eslint no-console:0 */
 import React from 'react';
 import { shape, string } from 'prop-types';
 import axios from 'axios';
 import Header from './Header';
 
 class Details extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { apiData: { imdbRating: '' } };
-  }
+  static propTypes = {
+    show: shape({
+      title: string,
+      description: string,
+      year: string,
+      rating: string,
+      poster: string,
+      trailer: string,
+      imdbID: string,
+    }).isRequired,
+  };
+  state = { apiData: { imdbRating: '' } };
   componentDidMount() {
     axios
       .get(`http://localhost:3000/${this.props.show.imdbID}`)
@@ -26,7 +35,6 @@ class Details extends React.Component {
       rating = (
         <img id="spin" src="/public/img/loading.png" alt="loading indicator" />
       );
-      console.log(rating);
     }
     return (
       <div className="details">
@@ -50,17 +58,5 @@ class Details extends React.Component {
     );
   }
 }
-
-Details.propTypes = {
-  show: shape({
-    title: string.isRequired,
-    description: string.isRequired,
-    year: string.isRequired,
-    rating: string.isRequired,
-    poster: string.isRequired,
-    trailer: string.isRequired,
-    imdbID: string.isRequired,
-  }).isRequired,
-};
 
 export default Details;

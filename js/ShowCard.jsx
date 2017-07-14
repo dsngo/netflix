@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { string } from 'prop-types';
 
-const ShowCard = props =>
+const ShowCard = (props: {
+  poster: string,
+  title: string,
+  year: string,
+  description: string,
+  imdbID: string,
+}) =>
   <Link to={`/details/${props.imdbID}`}>
     <div className="show-card">
       <img
@@ -16,13 +21,5 @@ const ShowCard = props =>
       </div>
     </div>
   </Link>;
-
-ShowCard.propTypes = {
-  poster: string.isRequired,
-  title: string.isRequired,
-  year: string.isRequired,
-  description: string.isRequired,
-  imdbID: string.isRequired,
-};
 
 export default ShowCard;

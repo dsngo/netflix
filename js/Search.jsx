@@ -4,16 +4,21 @@ import ShowCard from './ShowCard';
 import Header from './Header';
 
 class Search extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
-    this.state = {
-      searchTerm: '',
-    };
-  }
-  handleSearchTermChange(event) {
+  static propTypes = {
+    shows: arrayOf(
+      shape({
+        title: string,
+        description: string,
+        year: string,
+      })
+    ).isRequired,
+  };
+  state = {
+    searchTerm: '',
+  };
+  handleSearchTermChange = event => {
     this.setState({ searchTerm: event.target.value });
-  }
+  };
   render() {
     return (
       <div className="search">
@@ -36,15 +41,5 @@ class Search extends React.Component {
     );
   }
 }
-
-Search.propTypes = {
-  shows: arrayOf(
-    shape({
-      title: string,
-      description: string,
-      year: string,
-    })
-  ).isRequired,
-};
 
 export default Search;

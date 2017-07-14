@@ -1,7 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { func, bool, string } from 'prop-types';
 
 class Header extends React.Component {
+  static propTypes = {
+    handleSearchTermChange: func.isRequired,
+    showSearch: bool.isRequired,
+    searchTerm: string.isRequired,
+  };
+  static defaultProps = {
+    searchTerm: '',
+    handleSearchTermChange: func,
+    showSearch: false,
+  };
   render() {
     let utilSpace;
     if (this.props.showSearch) {
@@ -32,13 +43,5 @@ class Header extends React.Component {
     );
   }
 }
-
-const { func, bool, string } = React.PropTypes;
-
-Header.propTypes = {
-  handleSearchTermChange: func.isRequired,
-  showSearch: bool.isRequired,
-  searchTerm: string.isRequired,
-};
 
 export default Header;
