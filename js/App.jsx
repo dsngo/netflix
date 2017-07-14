@@ -14,11 +14,11 @@ const App = () =>
         <Route exact path="/" component={Landing} />
         <Route
           path="/search"
-          component={props => <Search shows={preload.shows} {...props} />}
+          render={props => <Search shows={preload.shows} {...props} />}
         />
         <Route
           path="/details/:id"
-          component={(props: { match: Match }) => {
+          render={(props: { match: Match }) => {
             const shows = preload.shows.filter(
               show => props.match.params.id === show.imdbID
             );
