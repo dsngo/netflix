@@ -1,12 +1,11 @@
 /* eslint no-console:0 */
 import React from 'react';
-import { shape, string } from 'prop-types';
 import axios from 'axios';
 import Header from './Header';
 
 class Details extends React.Component {
-  static propTypes = {
-    show: shape({
+  props: {
+    show: Array<{
       title: string,
       description: string,
       year: string,
@@ -14,7 +13,7 @@ class Details extends React.Component {
       poster: string,
       trailer: string,
       imdbID: string,
-    }).isRequired,
+    }>,
   };
   state = { apiData: { imdbRating: '' } };
   componentDidMount() {
@@ -33,7 +32,7 @@ class Details extends React.Component {
       rating = <h3>{this.state.apiData.rating}</h3>;
     } else {
       rating = (
-        <img id="spin" src="public/img/loading.png" alt="loading indicator" />
+        <img id="spin" src="/public/img/loading.png" alt="loading indicator" />
       );
     }
     return (
@@ -43,7 +42,7 @@ class Details extends React.Component {
           <h1>{title}</h1>
           <h2>({year})</h2>
           {rating}
-          <img alt={`${description}`} src={`public/img/posters/${poster}`} />
+          <img alt={`${description}`} src={`/public/img/posters/${poster}`} />
           <p>{description}</p>
         </section>
         <div>

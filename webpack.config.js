@@ -1,11 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const devPort = 9090;
 module.exports = {
   context: __dirname,
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:9090',
+    `webpack-dev-server/client?http://localhost:${devPort}/`,
     'webpack/hot/only-dev-server',
     './js/ClientApp.jsx',
   ],
@@ -13,13 +14,13 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: path.resolve(__dirname, 'public/'),
+    publicPath: '/',
   },
   devServer: {
     hot: true,
-    publicPath: path.resolve(__dirname, 'public/'),
+    publicPath: '/public/',
     historyApiFallback: true,
-    port: 9090,
+    port: devPort,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],

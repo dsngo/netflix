@@ -2,6 +2,7 @@
   "scripts": {
     "lint": "eslint js/**/*.{js,jsx} --quiet",
     "build": "webpack",
+    "predev": "rm -rf public/bundle.js",
     "dev": "webpack-dev-server --open",
     "watch": "yarn build -- --watch",
     "test": "cross-env NODE_ENV=test & jest",

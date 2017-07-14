@@ -1,24 +1,16 @@
 import React from 'react';
-import { shape, arrayOf, string } from 'prop-types';
 import ShowCard from './ShowCard';
 import Header from './Header';
 
 class Search extends React.Component {
-  static propTypes = {
-    shows: arrayOf(
-      shape({
-        title: string,
-        description: string,
-        year: string,
-      })
-    ).isRequired,
+  props: {
+    shows: Array<{ title: string, description: string, year: string }>,
   };
   state = {
     searchTerm: '',
   };
-  handleSearchTermChange = event => {
+  handleSearchTermChange = event =>
     this.setState({ searchTerm: event.target.value });
-  };
   render() {
     return (
       <div className="search">

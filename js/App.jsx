@@ -1,14 +1,16 @@
 import React from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import type { Match } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import Landing from './Landing';
 import Search from './Search';
 import FourOhFour from './FourOhFour';
 import Details from './Details';
 import preload from '../public/data.json';
+import store from './redux/store';
 
 const App = () =>
-  <Router>
+  <Provider store={store}>
     <div className="app">
       <Switch>
         <Route exact path="/" component={Landing} />
@@ -28,6 +30,6 @@ const App = () =>
         <Route component={FourOhFour} />
       </Switch>
     </div>
-  </Router>;
+  </Provider>;
 
 export default App;
