@@ -13,11 +13,11 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: '/public/',
+    publicPath: path.resolve(__dirname, 'public/'),
   },
   devServer: {
     hot: true,
-    publicPath: '/public/',
+    publicPath: path.resolve(__dirname, 'public/'),
     historyApiFallback: true,
     port: 9090,
   },

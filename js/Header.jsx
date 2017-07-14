@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import { func, bool, string } from 'prop-types';
 
 class Header extends React.Component {
-  static propTypes = {
-    handleSearchTermChange: func.isRequired,
-    showSearch: bool.isRequired,
-    searchTerm: string.isRequired,
-  };
   static defaultProps = {
     searchTerm: '',
     handleSearchTermChange: func,
     showSearch: false,
+  };
+  static propTypes = {
+    handleSearchTermChange: func.isRequired,
+    showSearch: bool.isRequired,
+    searchTerm: string.isRequired,
   };
   render() {
     let utilSpace;
