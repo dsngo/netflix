@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import type { RouterHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actionCreators from './redux/actionCreators';
+import { setSearchTerm } from './redux/actionCreators';
 import '../public/normalize.css';
 import '../public/style.css';
 
@@ -39,5 +39,11 @@ class Landing extends Component {
 }
 
 const mapStateToProps = state => ({ searchTerm: state.searchTerm });
+// const mapDispatchToProps = dispatch => ({
+//   setSearchTerm: searchTerm => dispatch(setSearchTerm(searchTerm)),
+// });
+const mapDispatchToProps = {
+  setSearchTerm,
+};
 
-export default connect(mapStateToProps, actionCreators)(Landing);
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);
