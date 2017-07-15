@@ -24,14 +24,9 @@ class Details extends React.Component {
   }
   render() {
     const { title, description, year, poster, trailer } = this.props.show;
-    let rating;
-    if (this.props.rating) {
-      rating = <h3>{this.props.rating}</h3>;
-    } else {
-      rating = (
-        <img id="spin" src="/public/img/loading.png" alt="loading indicator" />
-      );
-    }
+    const rating = this.props.rating
+      ? <h3>{this.props.rating}</h3>
+      : <img id="spin" src="/public/img/loading.png" alt="loading indicator" />;
     return (
       <div className="details">
         <Header />
@@ -55,9 +50,7 @@ class Details extends React.Component {
   }
 }
 const mapStateToProps = (state, ownProps) => {
-  const apiData = state.apiData[ownProps.show.imdbID]
-    ? state.apiData[ownProps.show.imdbID]
-    : {};
+  const apiData = state.apiData[ownProps.show.imdbID] || {};
   return {
     rating: apiData.rating,
   };
