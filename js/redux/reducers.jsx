@@ -1,16 +1,12 @@
-import { SET_SEARCH_TERM } from '../redux/actions';
+import { combineReducers } from 'redux';
+import { SET_SEARCH_TERM, ADD_API_DATA } from '../redux/actions';
 
-const defaultState = {
-  searchTerm: '',
-};
+const searchTerm = (state = '', action) =>
+  action.type === SET_SEARCH_TERM ? action.searchTerm : state;
 
-const rootReducer = (state = defaultState, action) => {
-  switch (action.type) {
-    case SET_SEARCH_TERM:
-      return { ...state, searchTerm: action.searchTerm };
-    default:
-      return state;
-  }
-};
+const apiData = (state = {}, action) =>
+  action.type === ADD_API_DATA ? { [action.imdbID]: action.apiData } : state;
+
+const rootReducer = combineReducers({ searchTerm, apiData });
 
 export default rootReducer;

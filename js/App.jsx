@@ -1,13 +1,13 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import type { Match } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import store from './redux/store';
 import Landing from './Landing';
 import Search from './Search';
 import FourOhFour from './FourOhFour';
 import Details from './Details';
 import preload from '../public/data.json';
-import store from './redux/store';
 
 const App = () =>
   <Provider store={store}>

@@ -1,11 +1,11 @@
-/* eslint no-console:0 */
 import React from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { getAPIDetails } from './redux/actionCreators';
 import Header from './Header';
 
 class Details extends React.Component {
   props: {
-    show: Array<{
+    show: {
       title: string,
       description: string,
       year: string,
@@ -13,23 +13,20 @@ class Details extends React.Component {
       poster: string,
       trailer: string,
       imdbID: string,
-    }>,
+    },
+    rating: string,
+    getAPIDetails: Function,
   };
-  state = { apiData: { imdbRating: '' } };
   componentDidMount() {
-    axios
-      .get(`http://localhost:3000/${this.props.show.imdbID}`)
-      .then((response: { data: { rating: string } }) => {
-        console.log('response', response);
-        this.setState({ apiData: response.data });
-      })
-      .catch(error => console.log('axios', error));
+    if (!this.props.rating) {
+      this.props.getAPIDetails(this.props.show.imdbID);
+    }
   }
   render() {
     const { title, description, year, poster, trailer } = this.props.show;
     let rating;
-    if (this.state.apiData.rating) {
-      rating = <h3>{this.state.apiData.rating}</h3>;
+    if (this.props.rating) {
+      rating = <h3>{this.props.rating}</h3>;
     } else {
       rating = (
         <img id="spin" src="/public/img/loading.png" alt="loading indicator" />
@@ -57,5 +54,17 @@ class Details extends React.Component {
     );
   }
 }
+const mapStateToProps = (state, ownProps) => {
+  const apiData = state.apiData[ownProps.show.imdbID]
+    ? state.apiData[ownProps.show.imdbID]
+    : {};
+  return {
+    rating: apiData.rating,
+  };
+};
 
-export default Details;
+const mapDispatchToProps = dispatch => ({
+  getAPIDetails: imdbID => dispatch(getAPIDetails(imdbID)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

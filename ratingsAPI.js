@@ -7,10 +7,12 @@ const buffer = fs.readFileSync('./data.json');
 const showsObj = JSON.parse(buffer);
 const app = express();
 
+const ratingAPI = () => ({
+  rating: `${Math.floor(Math.random() * 9)}.${Math.floor(Math.random() * 9)}`,
+});
+
 app.use(cors());
-const ratedShows = showsObj.shows.map(show =>
-  Object.assign({ rating: `${Math.floor(Math.random() * 9)}.${Math.floor(Math.random() * 9)}` }, show)
-);
+const ratedShows = showsObj.shows.map(show => Object.assign(ratingAPI(), show));
 
 app.get('/:id', (req, res) => {
   const show = ratedShows.find(item => item.imdbID === req.params.id);
