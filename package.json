@@ -5,9 +5,9 @@
     "predev": "rm -rf public/bundle.js",
     "dev": "webpack-dev-server --open",
     "watch": "yarn build -- --watch",
-    "test": "cross-env NODE_ENV=test & jest",
-    "test:update": "cross-env NODE_ENV=test & jest -u",
-    "cover": "cross-env NODE_ENV=test & jest --coverage"
+    "test": "SET NODE_ENV=test& jest",
+    "test:update": "SET NODE_ENV=test& jest -u",
+    "cover": "SET NODE_ENV=test& jest --coverage"
   },
   "jest": {
     "snapshotSerializers": [
