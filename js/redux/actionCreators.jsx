@@ -6,15 +6,14 @@ export const setSearchTerm = searchTerm => ({
   type: SET_SEARCH_TERM,
   searchTerm,
 });
-export const addAPIData = (imdbID, apiData) => ({
+export const addAPIData = apiData => ({
   type: ADD_API_DATA,
-  imdbID,
   apiData,
 });
 export const getAPIDetails = imdbID => dispatch =>
   axios
     .get(`http://localhost:3000/${imdbID}`)
     .then((response: { data: { rating: string } }) =>
-      dispatch(addAPIData(imdbID, response.data))
+      dispatch(addAPIData(response.data))
     )
     .catch(error => console.log('axios', error));

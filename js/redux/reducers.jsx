@@ -5,7 +5,9 @@ const searchTerm = (state = '', action) =>
   action.type === SET_SEARCH_TERM ? action.searchTerm : state;
 
 const apiData = (state = {}, action) =>
-  action.type === ADD_API_DATA ? { [action.imdbID]: action.apiData } : state;
+  action.type === ADD_API_DATA
+    ? { [action.apiData.imdbID]: action.apiData }
+    : state;
 
 const rootReducer = combineReducers({ searchTerm, apiData });
 

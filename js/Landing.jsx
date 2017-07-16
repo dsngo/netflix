@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import type { RouterHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setSearchTerm } from './redux/actionCreators';
-import '../public/normalize.css';
-import '../public/style.css';
+// import '../public/normalize.css';
+// import '../public/style.css';
 
 class Landing extends Component {
   props: {

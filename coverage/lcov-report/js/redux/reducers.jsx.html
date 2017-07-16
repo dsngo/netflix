@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for js/redux/actions.jsx</title>
+    <title>Code coverage report for js/redux/reducers.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\index.html">All files</a> / <a href="index.html">js/redux</a> actions.jsx
+      <a href="..\..\index.html">All files</a> / <a href="index.html">js/redux</a> reducers.jsx
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>5/5</span>
       </div>
     </div>
   </div>
@@ -45,10 +45,40 @@
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
-3</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const SET_SEARCH_TERM = 'SET_SEARCH_TERM';
-export const ADD_API_DATA = 'ADD_API_DATA';
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { combineReducers } from 'redux';
+import { SET_SEARCH_TERM, ADD_API_DATA } from '../redux/actions';
+&nbsp;
+const searchTerm = (state = '', action) =&gt;
+  action.type === SET_SEARCH_TERM ? action.searchTerm : state;
+&nbsp;
+const apiData = (state = {}, action) =&gt;
+  action.type === ADD_API_DATA ? { [action.imdbID]: action.apiData } : state;
+&nbsp;
+const rootReducer = combineReducers({ searchTerm, apiData });
+&nbsp;
+export default rootReducer;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
