@@ -23,6 +23,9 @@
   ],
   "plugins": [
     ["react-hot-loader/babel"],
+    ["dynamic-import-node"],
+    ["dynamic-import-webpack"],
+    ["syntax-dynamic-import"],
     ["transform-class-properties"],
     ["transform-object-rest-spread", { "useBuiltIns": true }]
   ]

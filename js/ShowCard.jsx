@@ -15,9 +15,15 @@ const ShowCard = (props: {
         alt={`${props.title} Show Poster`}
       />
       <div>
-        <h3>{props.title}</h3>
-        <h4>({props.year})</h4>
-        <p>{props.description}</p>
+        <h3>
+          {props.title}
+        </h3>
+        <h4>
+          ({props.year})
+        </h4>
+        <p>
+          {props.description}
+        </p>
       </div>
     </div>
   </Link>;
