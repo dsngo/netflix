@@ -15,4 +15,4 @@
 >- [x] optimise webpack config for serverside rendering
 >- [x] handle uncaught promise error in node environment
 >- [x] solve memory leaking on serverside rendering with babel register compiler
->- [ ] todo: ....
+>- [ ] todo: updating UI with semantic UI, updating database with MONGO
