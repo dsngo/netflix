@@ -1,3 +1,4 @@
+/* eslint no-console:0 */
 const express = require('express');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
@@ -10,7 +11,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpack = require('webpack');
 const config = require('./webpack.config');
 
-const PORT = 3030;
+const PORT = process.env.PORT || 3030;
 const baseTemplate = fs.readFileSync('./index.html');
 const template = _.template(baseTemplate);
 const App = require('./js/App').default;
@@ -42,6 +43,5 @@ server.use((req, res) => {
   res.write(template({ body }));
   res.end();
 });
-console.log(`Listening on port: ${PORT}`); // eslint-disable-line
-console.log(process.env.NODE_ENV); // eslint-disable-line
+console.log(`Listening on port: ${PORT}`);
 server.listen(PORT);

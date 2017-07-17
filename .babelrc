@@ -5,7 +5,7 @@
       "plugins": ["transform-es2015-modules-commonjs"]
     },
     "server": {
-      "plugins": ["transform-es2015-modules-commonjs"]
+      "plugins": ["dynamic-import-node", "transform-es2015-modules-commonjs"]
     }
   },
   "presets": [
@@ -23,6 +23,8 @@
   ],
   "plugins": [
     ["react-hot-loader/babel"],
+    ["babel-plugin-syntax-dynamic-import"],
+    ["babel-plugin-dynamic-import-webpack"],
     ["transform-class-properties"],
     ["transform-object-rest-spread", { "useBuiltIns": true }]
   ]

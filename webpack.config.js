@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
 
 const devPort = 9090;
 const config = {
@@ -51,7 +52,7 @@ const config = {
           path.resolve(__dirname, 'js'),
           path.resolve('node_modules/preact-compat/src'),
         ],
-        test: /\.jsx?$/,
+        test: /\.(jsx|js)?$/,
         loader: 'babel-loader',
       },
       {
@@ -69,6 +70,24 @@ const config = {
     ],
   },
 };
+if (process.env.NODE_ENV === 'server') {
+  config.target = 'node';
+  config.externals = [nodeExternals()];
+  config.entry = './server.js';
+  config.output = {
+    path: __dirname,
+    filename: 'served-server.js',
+    libraryTarget: 'commonjs2',
+  };
+  delete config.devtool;
+  delete config.devServer;
+  config.stats.chunks = false;
+  config.resolve.alias = {
+    react: 'preact-compat',
+    'react-dom': 'preact-compat',
+  };
+  config.plugins = [];
+}
 if (process.env.NODE_ENV === 'development') {
   config.entry = [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',

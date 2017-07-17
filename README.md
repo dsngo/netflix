@@ -10,5 +10,8 @@
 >- [x] testing components done
 >- [x] testing asynchronous redux actions on HTTP requests done 
 >- [x] configuration serverside rendering with node + react/server + react router + babel-register + lodash template done
->- [x] configuration webpack for code splitting 16/07/2017
+>- [x] configuration webpack for code splitting 16/07/2017 done
+>- [x] finish stable server side rendering with production build done
+>- [x] optimise webpack config for serverside rendering
+>- [x] handle uncaught promise error in node environment
 >- [ ] todo: ....
