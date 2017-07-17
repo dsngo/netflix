@@ -14,4 +14,5 @@
 >- [x] finish stable server side rendering with production build done
 >- [x] optimise webpack config for serverside rendering
 >- [x] handle uncaught promise error in node environment
+>- [x] solve memory leaking on serverside rendering with babel register compiler
 >- [ ] todo: ....
