@@ -39,7 +39,7 @@ const config = {
     rules: [
       {
         enforce: 'pre',
-        test: /\.jsx?$/,
+        test: /\.(jsx|js)?$/,
         loader: 'eslint-loader',
         exclude: /node_modules/,
       },
@@ -66,6 +66,11 @@ const config = {
             },
           },
         ],
+      },
+      {
+        enforce: 'post',
+        test: /\.(jsx|js|css)?$/,
+        loader: ['stripcomment-loader'],
       },
     ],
   },

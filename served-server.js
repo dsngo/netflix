@@ -102,7 +102,6 @@ var _actions = __webpack_require__(6);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint no-console: 0 */
 var setSearchTerm = exports.setSearchTerm = function setSearchTerm(searchTerm) {
   return {
     type: _actions.SET_SEARCH_TERM,
@@ -274,7 +273,6 @@ var _temp = function () {
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* eslint no-console:0 */
 const express = __webpack_require__(9);
 const React = __webpack_require__(0);
 const ReactDOMServer = __webpack_require__(10);
@@ -303,7 +301,7 @@ if (process.env.NODE_ENV === 'development') {
   );
   server.use(webpackHotMiddleware(compiler));
 }
-server.use('/public/', express.static('public')); // Make sure to understand this
+server.use('/public/', express.static('public'));
 server.use((req, res) => {
   const context = {};
   const body = ReactDOMServer.renderToString(
@@ -410,7 +408,7 @@ const config = {
     rules: [
       {
         enforce: 'pre',
-        test: /\.jsx?$/,
+        test: /\.(jsx|js)?$/,
         loader: 'eslint-loader',
         exclude: /node_modules/,
       },
@@ -437,6 +435,11 @@ const config = {
             },
           },
         ],
+      },
+      {
+        enforce: 'post',
+        test: /\.(jsx|js|css)?$/,
+        loader: ['stripcomment-loader'],
       },
     ],
   },
@@ -538,9 +541,9 @@ var _data2 = _interopRequireDefault(_data);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// if (global) {
-//   global.System = { import() {} };
-// }
+
+
+
 
 var App = function App() {
   return _react2.default.createElement(
@@ -590,8 +593,7 @@ var App = function App() {
       )
     )
   );
-}; /* eslint no-console:0 */
-var _default = App;
+}; var _default = App;
 exports.default = _default;
 ;
 
@@ -1119,11 +1121,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint no-console:0 */
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } 
 
 
-// import '../public/normalize.css';
-// import '../public/style.css';
 
 var Landing = function (_Component) {
   _inherits(Landing, _Component);

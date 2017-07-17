@@ -1,19 +1,20 @@
 {
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --progress",
     "w:dev": "yarn build -- -w",
     "preb:prod": "rm -rf public/js",
-    "b:prod": "SET NODE_ENV=production& webpack -p",
+    "b:prod": "SET NODE_ENV=production& webpack -p --progress",
     "w:prod": "yarn build:prod -- -w",
     "predev": "rm -rf public/bundle.js",
-    "dev": "webpack-dev-server --open",
+    "dev": "webpack-dev-server --open --progress",
     "test": "SET NODE_ENV=test& jest",
     "test:upd": "SET NODE_ENV=test& jest -u",
     "test:cover": "SET NODE_ENV=test& jest --coverage",
     "lint": "eslint js/**/*.{js,jsx} --quiet",
     "server": "SET NODE_ENV=server& nodemon --exec babel-node server.js",
     "preb:serv": "rm -rf served-server.js",
-    "b:serv": "SET NODE_ENV=server& webpack",
+    "b:serv": "SET NODE_ENV=server& webpack --progress",
+    "strip": "webpack served-server.js test-server.js",
     "w:serv": "yarn build:serv -- -w",
     "start": "node served-server.js"
   },
@@ -44,7 +45,10 @@
     "react-router-dom": "4.1.1",
     "react-test-renderer": "^15.6.1",
     "redux": "^3.7.2",
-    "redux-thunk": "2.2.0"
+    "redux-thunk": "2.2.0",
+    "webpack": "^3.3.0",
+    "webpack-dev-middleware": "^1.11.0",
+    "webpack-hot-middleware": "^2.18.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -80,13 +84,11 @@
     "nodemon": "1.11.0",
     "prettier": "^1.5.3",
     "react-hot-loader": "next",
+    "stripcomment-loader": "^0.1.0",
     "style-loader": "^0.18.2",
     "styled-components": "^2.1.1",
-    "webpack": "^3.3.0",
     "webpack-dev-server": "^2.5.1",
-    "webpack-node-externals": "^1.6.0",
-    "webpack-dev-middleware": "^1.11.0",
-    "webpack-hot-middleware": "^2.18.2"
+    "webpack-node-externals": "^1.6.0"
   },
   "name": "react-experiment",
   "version": "1.0.0",
