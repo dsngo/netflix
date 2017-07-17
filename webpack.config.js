@@ -13,7 +13,7 @@ const config = {
   devtool: 'cheap-module-eval-source-map',
   output: {
     path: path.resolve(__dirname, 'public/js/'),
-    filename: 'bundle.js',
+    filename: '[name]-bundle.js',
     publicPath: '/public/js/',
   },
   devServer: {
@@ -28,7 +28,7 @@ const config = {
   stats: {
     colors: true,
     reasons: true,
-    chunks: false,
+    chunks: true,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -69,12 +69,17 @@ const config = {
     ],
   },
 };
-
+if (process.env.NODE_ENV === 'development') {
+  config.entry = [
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+    './js/ClientApp.jsx',
+  ];
+}
 if (process.env.NODE_ENV === 'production') {
   config.entry = './js/ClientApp.jsx';
   delete config.devtool;
   delete config.devServer;
-  config.stats.chunks = true;
+  config.stats.chunks = false;
   config.resolve.alias = {
     react: 'preact-compat',
     'react-dom': 'preact-compat',
@@ -84,6 +89,9 @@ if (process.env.NODE_ENV === 'production') {
       'process.env': {
         NODE_ENV: '"production"',
       },
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
     }),
   ];
 }

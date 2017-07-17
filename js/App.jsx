@@ -8,6 +8,10 @@ import AsyncRoute from './AsyncRoute';
 import FourOhFour from './FourOhFour';
 import preload from '../public/data.json';
 
+if (global) {
+  global.System = { import() {} };
+}
+
 const App = () =>
   <Provider store={store}>
     <div className="app">
@@ -18,9 +22,7 @@ const App = () =>
           component={props =>
             <AsyncRoute
               props={props}
-              loadingPromise={import('./Landing').catch(e =>
-                console.log('Landing: ', e)
-              )}
+              loadingPromise={System.import('./Landing')}
             />}
         />
         <Route
@@ -28,9 +30,7 @@ const App = () =>
           component={props =>
             <AsyncRoute
               props={{ shows: preload.shows, ...props }}
-              loadingPromise={import('./Search').catch(e =>
-                console.log('Search: ', e)
-              )}
+              loadingPromise={System.import('./Search')}
             />}
         />
         <Route
@@ -42,9 +42,7 @@ const App = () =>
             return (
               <AsyncRoute
                 props={{ show: shows[0], ...props }}
-                loadingPromise={import('./Details').catch(e =>
-                  console.log('Details: ', e)
-                )}
+                loadingPromise={System.import('./Details')}
               />
             );
           }}

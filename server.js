@@ -1,5 +1,3 @@
-require('babel-register');
-
 const express = require('express');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
@@ -45,4 +43,5 @@ server.use((req, res) => {
   res.end();
 });
 console.log(`Listening on port: ${PORT}`); // eslint-disable-line
+console.log(process.env.NODE_ENV); // eslint-disable-line
 server.listen(PORT);

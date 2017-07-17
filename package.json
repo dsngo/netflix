@@ -2,14 +2,15 @@
   "scripts": {
     "lint": "eslint js/**/*.{js,jsx} --quiet",
     "build": "webpack",
-    "build:production": "SET NODE_ENV=production& webpack -p",
+    "prebuild:prod": "rm -rf public/js",
+    "build:prod": "SET NODE_ENV=production& webpack -p",
     "predev": "rm -rf public/bundle.js",
     "dev": "webpack-dev-server --open",
     "watch": "yarn build -- -w",
     "test": "SET NODE_ENV=test& jest",
     "test:update": "SET NODE_ENV=test& jest -u",
     "cover": "SET NODE_ENV=test& jest --coverage",
-    "server": "SET NODE_ENV=server& nodemon server.js"
+    "server": "SET NODE_ENV=server& nodemon --exec babel-node server.js"
   },
   "jest": {
     "snapshotSerializers": [
@@ -45,6 +46,7 @@
     "webpack-hot-middleware": "^2.18.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-eslint": "7.2.3",
     "babel-loader": "^7.1.1",
