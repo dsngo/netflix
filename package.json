@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "git": "git add . & git commit -m",
     "build": "webpack --progress",
     "w:dev": "yarn build -- -w",
     "preb:prod": "rm -rf public/js",
@@ -16,6 +17,8 @@
     "b:serv": "SET NODE_ENV=server& webpack --progress",
     "strip": "webpack served-server.js test-server.js",
     "w:serv": "yarn build:serv -- -w",
+    "b:final": "yarn b:prod & yarn b:serv",
+    "rAPI": "node ratingsAPI.js",
     "start": "node served-server.js"
   },
   "jest": {

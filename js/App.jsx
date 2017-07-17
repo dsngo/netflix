@@ -8,10 +8,6 @@ import AsyncRoute from './AsyncRoute';
 import FourOhFour from './FourOhFour';
 import preload from '../public/data.json';
 
-// if (global) {
-//   global.System = { import() {} };
-// }
-
 const App = () =>
   <Provider store={store}>
     <div className="app">

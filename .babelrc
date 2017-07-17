@@ -5,9 +5,15 @@
       "plugins": ["transform-es2015-modules-commonjs"]
     },
     "server": {
-      "plugins": ["dynamic-import-node", "transform-es2015-modules-commonjs"]
+      "plugins": [
+        "dynamic-import-node",
+        "syntax-dynamic-import",
+        "transform-es2015-modules-commonjs"
+      ]
     }
   },
+  "minified":	true,
+  "comments": false,
   "presets": [
     "react",
     [
@@ -23,8 +29,7 @@
   ],
   "plugins": [
     ["react-hot-loader/babel"],
-    ["babel-plugin-syntax-dynamic-import"],
-    ["babel-plugin-dynamic-import-webpack"],
+    ["dynamic-import-webpack"],
     ["transform-class-properties"],
     ["transform-object-rest-spread", { "useBuiltIns": true }]
   ]

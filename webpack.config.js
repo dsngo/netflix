@@ -67,11 +67,6 @@ const config = {
           },
         ],
       },
-      {
-        enforce: 'post',
-        test: /\.(jsx|js|css)?$/,
-        loader: ['stripcomment-loader'],
-      },
     ],
   },
 };
@@ -116,6 +111,9 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      comments: false,
     }),
   ];
 }
