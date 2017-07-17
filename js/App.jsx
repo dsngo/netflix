@@ -1,4 +1,3 @@
-/* eslint no-console:0 */
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';

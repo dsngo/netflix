@@ -1,4 +1,4 @@
-/* eslint no-console:0 */
+/* eslint no-console: 0 */
 const express = require('express');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
@@ -18,6 +18,7 @@ const App = require('./js/App').default;
 
 const server = express();
 server.use(compression());
+// Useful for testing server with hot module reload, can create lots of hashes
 if (process.env.NODE_ENV === 'development') {
   const compiler = webpack(config);
   server.use(
@@ -27,7 +28,8 @@ if (process.env.NODE_ENV === 'development') {
   );
   server.use(webpackHotMiddleware(compiler));
 }
-server.use('/public/', express.static('public')); // Make sure to understand this
+// Fallback to /public/ for static file serving
+server.use('/public/', express.static('public'));
 server.use((req, res) => {
   const context = {};
   const body = ReactDOMServer.renderToString(

@@ -1,31 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-const ShowCard = (props: {
-  poster: string,
-  title: string,
-  year: string,
-  description: string,
-  imdbID: string,
-}) =>
-  <Link to={`/details/${props.imdbID}`}>
-    <div className="show-card">
-      <img
-        src={`./public/img/posters/${props.poster}`}
-        alt={`${props.title} Show Poster`}
-      />
-      <div>
-        <h3>
-          {props.title}
-        </h3>
-        <h4>
-          ({props.year})
-        </h4>
-        <p>
-          {props.description}
-        </p>
-      </div>
-    </div>
-  </Link>;
+class ShowCard extends Component {
+  props: {
+    poster: string,
+    title: string,
+    year: string,
+    description: string,
+    imdbID: string,
+  };
+  shouldComponentUpdate() {
+    return false;
+  }
+  render() {
+    return (
+      <Link to={`/details/${this.props.imdbID}`}>
+        <div className="show-card">
+          <img
+            src={`./public/img/posters/${this.props.poster}`}
+            alt={`${this.props.title} Show Poster`}
+          />
+          <div>
+            <h3>
+              {this.props.title}
+            </h3>
+            <h4>
+              ({this.props.year})
+            </h4>
+            <p>
+              {this.props.description}
+            </p>
+          </div>
+        </div>
+      </Link>
+    );
+  }
+}
 
 export default ShowCard;

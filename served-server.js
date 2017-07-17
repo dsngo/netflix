@@ -119,7 +119,7 @@ Object.defineProperty(exports,'__esModule',{value:true});var _react=__webpack_re
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* eslint no-console:0 */
+/* eslint no-console: 0 */
 const express = __webpack_require__(9);
 const React = __webpack_require__(0);
 const ReactDOMServer = __webpack_require__(10);
@@ -139,6 +139,7 @@ const App = __webpack_require__(19).default;
 
 const server = express();
 server.use(compression());
+// Useful for testing server with hot module reload, can create lots of hashes
 if (process.env.NODE_ENV === 'development') {
   const compiler = webpack(config);
   server.use(
@@ -148,7 +149,8 @@ if (process.env.NODE_ENV === 'development') {
   );
   server.use(webpackHotMiddleware(compiler));
 }
-server.use('/public/', express.static('public')); // Make sure to understand this
+// Fallback to /public/ for static file serving
+server.use('/public/', express.static('public'));
 server.use((req, res) => {
   const context = {};
   const body = ReactDOMServer.renderToString(
@@ -680,7 +682,7 @@ Object.defineProperty(exports,'__esModule',{value:true});exports.Unwrapped=undef
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports,'__esModule',{value:true});var _react=__webpack_require__(0);var _react2=_interopRequireDefault(_react);var _reactRouterDom=__webpack_require__(1);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}var ShowCard=function ShowCard(props){return _react2.default.createElement(_reactRouterDom.Link,{to:'/details/'+props.imdbID},_react2.default.createElement('div',{className:'show-card'},_react2.default.createElement('img',{src:'./public/img/posters/'+props.poster,alt:props.title+' Show Poster'}),_react2.default.createElement('div',null,_react2.default.createElement('h3',null,props.title),_react2.default.createElement('h4',null,'(',props.year,')'),_react2.default.createElement('p',null,props.description))))};var _default=ShowCard;exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(ShowCard,'ShowCard','C:/Users/Rhaps/Desktop/React/Review/js/ShowCard.jsx');__REACT_HOT_LOADER__.register(_default,'default','C:/Users/Rhaps/Desktop/React/Review/js/ShowCard.jsx')}();;
+Object.defineProperty(exports,'__esModule',{value:true});var _react=__webpack_require__(0);var _react2=_interopRequireDefault(_react);var _reactRouterDom=__webpack_require__(1);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function')}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called')}return call&&(typeof call==='object'||typeof call==='function')?call:self}function _inherits(subClass,superClass){if(typeof superClass!=='function'&&superClass!==null){throw new TypeError('Super expression must either be null or a function, not '+typeof superClass)}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass}var ShowCard=function(_Component){_inherits(ShowCard,_Component);function ShowCard(){_classCallCheck(this,ShowCard);return _possibleConstructorReturn(this,_Component.apply(this,arguments))}ShowCard.prototype.shouldComponentUpdate=function shouldComponentUpdate(){return false};ShowCard.prototype.render=function render(){return _react2.default.createElement(_reactRouterDom.Link,{to:'/details/'+this.props.imdbID},_react2.default.createElement('div',{className:'show-card'},_react2.default.createElement('img',{src:'./public/img/posters/'+this.props.poster,alt:this.props.title+' Show Poster'}),_react2.default.createElement('div',null,_react2.default.createElement('h3',null,this.props.title),_react2.default.createElement('h4',null,'(',this.props.year,')'),_react2.default.createElement('p',null,this.props.description))))};return ShowCard}(_react.Component);var _default=ShowCard;exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(ShowCard,'ShowCard','C:/Users/Rhaps/Desktop/React/Review/js/ShowCard.jsx');__REACT_HOT_LOADER__.register(_default,'default','C:/Users/Rhaps/Desktop/React/Review/js/ShowCard.jsx')}();;
 
 /***/ }),
 /* 30 */
