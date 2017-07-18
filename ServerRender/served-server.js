@@ -61,7 +61,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -87,68 +87,62 @@ module.exports = require("react-redux");
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports,'__esModule',{value:true});exports.getAPIDetails=exports.addAPIData=exports.setSearchTerm=undefined;var _axios=__webpack_require__(27);var _axios2=_interopRequireDefault(_axios);var _actions=__webpack_require__(6);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}var setSearchTerm=exports.setSearchTerm=function setSearchTerm(searchTerm){return{type:_actions.SET_SEARCH_TERM,searchTerm:searchTerm}};var addAPIData=exports.addAPIData=function addAPIData(apiData){return{type:_actions.ADD_API_DATA,apiData:apiData}};var getAPIDetails=exports.getAPIDetails=function getAPIDetails(imdbID){return function(dispatch){return _axios2.default.get('http://localhost:3000/'+imdbID).then(function(response){return dispatch(addAPIData(response.data))}).catch(function(error){return console.log('axios',error)})}};;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(setSearchTerm,'setSearchTerm','D:/Workspace/Webdev/netflix/js/redux/actionCreators.jsx');__REACT_HOT_LOADER__.register(addAPIData,'addAPIData','D:/Workspace/Webdev/netflix/js/redux/actionCreators.jsx');__REACT_HOT_LOADER__.register(getAPIDetails,'getAPIDetails','D:/Workspace/Webdev/netflix/js/redux/actionCreators.jsx')}();;
+Object.defineProperty(exports,'__esModule',{value:true});exports.getAPIDetails=exports.addAPIData=exports.setSearchTerm=undefined;var _axios=__webpack_require__(21);var _axios2=_interopRequireDefault(_axios);var _actions=__webpack_require__(5);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}var setSearchTerm=exports.setSearchTerm=function setSearchTerm(searchTerm){return{type:_actions.SET_SEARCH_TERM,searchTerm:searchTerm}};var addAPIData=exports.addAPIData=function addAPIData(apiData){return{type:_actions.ADD_API_DATA,apiData:apiData}};var getAPIDetails=exports.getAPIDetails=function getAPIDetails(imdbID){return function(dispatch){return _axios2.default.get('http://localhost:3000/'+imdbID).then(function(response){return dispatch(addAPIData(response.data))}).catch(function(error){return console.log('axios',error)})}};;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(setSearchTerm,'setSearchTerm','D:/Workspace/Webdev/netflix/js/redux/actionCreators.jsx');__REACT_HOT_LOADER__.register(addAPIData,'addAPIData','D:/Workspace/Webdev/netflix/js/redux/actionCreators.jsx');__REACT_HOT_LOADER__.register(getAPIDetails,'getAPIDetails','D:/Workspace/Webdev/netflix/js/redux/actionCreators.jsx')}();;
 
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = require("webpack");
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
 module.exports = require("redux");
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports,'__esModule',{value:true});var SET_SEARCH_TERM=exports.SET_SEARCH_TERM='SET_SEARCH_TERM';var ADD_API_DATA=exports.ADD_API_DATA='ADD_API_DATA';var CHANGE_BRAND=exports.CHANGE_BRAND='CHANGE_BRAND';;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(SET_SEARCH_TERM,'SET_SEARCH_TERM','D:/Workspace/Webdev/netflix/js/redux/actions.jsx');__REACT_HOT_LOADER__.register(ADD_API_DATA,'ADD_API_DATA','D:/Workspace/Webdev/netflix/js/redux/actions.jsx');__REACT_HOT_LOADER__.register(CHANGE_BRAND,'CHANGE_BRAND','D:/Workspace/Webdev/netflix/js/redux/actions.jsx')}();;
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports,'__esModule',{value:true});var _react=__webpack_require__(0);var _react2=_interopRequireDefault(_react);var _reactRedux=__webpack_require__(2);var _reactRouterDom=__webpack_require__(1);var _actionCreators=__webpack_require__(3);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}var Header=function Header(props){var utilSpace=props.showSearch?_react2.default.createElement('input',{onChange:function onChange(e){return props.setSearchTerm(e.target.value)},value:props.searchTerm,type:'text',placeholder:'Search'}):_react2.default.createElement('h2',null,_react2.default.createElement(_reactRouterDom.Link,{to:'/search'},'Back'));return _react2.default.createElement('header',null,_react2.default.createElement('h1',null,_react2.default.createElement(_reactRouterDom.Link,{to:'/',onClick:function onClick(){return props.setSearchTerm('')}},props.brandName)),utilSpace)};var mapStateToProps=function mapStateToProps(state){return{searchTerm:state.searchTerm,brandName:state.brandName}};var mapDispatchToProps=function mapDispatchToProps(dispatch){return{setSearchTerm:function setSearchTerm(searchTerm){return dispatch((0,_actionCreators.setSearchTerm)(searchTerm))}}};var _default=(0,_reactRedux.connect)(mapStateToProps,mapDispatchToProps)(Header);exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(Header,'Header','D:/Workspace/Webdev/netflix/js/Header.jsx');__REACT_HOT_LOADER__.register(mapStateToProps,'mapStateToProps','D:/Workspace/Webdev/netflix/js/Header.jsx');__REACT_HOT_LOADER__.register(mapDispatchToProps,'mapDispatchToProps','D:/Workspace/Webdev/netflix/js/Header.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/Header.jsx')}();;
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint no-console: 0 */
-const express = __webpack_require__(9);
+const express = __webpack_require__(8);
 const React = __webpack_require__(0);
-const ReactDOMServer = __webpack_require__(10);
+const ReactDOMServer = __webpack_require__(9);
 const { StaticRouter } = __webpack_require__(1);
-const _ = __webpack_require__(11);
-const fs = __webpack_require__(12);
-const compression = __webpack_require__(13);
-const webpackDevMiddleware = __webpack_require__(14);
-const webpackHotMiddleware = __webpack_require__(15);
-const webpack = __webpack_require__(4);
-const config = __webpack_require__(16);
+const _ = __webpack_require__(10);
+const fs = __webpack_require__(11);
+const compression = __webpack_require__(12);
+// const webpackDevMiddleware = require('webpack-dev-middleware');
+// const webpackHotMiddleware = require('webpack-hot-middleware');
+// const webpack = require('webpack');
+// const config = require('../webpack.config');
 
 const PORT = process.env.PORT || 3030;
 const baseTemplate = fs.readFileSync('./index.html');
 const template = _.template(baseTemplate);
-const App = __webpack_require__(19).default;
+const App = __webpack_require__(13).default;
 
 const server = express();
 server.use(compression());
 // Useful for testing server with hot module reload, can create lots of hashes
-if (process.env.NODE_ENV === 'development') {
-  const compiler = webpack(config);
-  server.use(
-    webpackDevMiddleware(compiler, {
-      publicPath: config.output.publicPath,
-    })
-  );
-  server.use(webpackHotMiddleware(compiler));
-}
+// if (process.env.NODE_ENV === 'development') {
+//   const compiler = webpack(config);
+//   server.use(
+//     webpackDevMiddleware(compiler, {
+//       publicPath: config.output.publicPath,
+//     })
+//   );
+//   server.use(webpackHotMiddleware(compiler));
+// }
 // Fallback to /public/ for static file serving
 server.use('/public/', express.static('public'));
 server.use((req, res) => {
@@ -171,229 +165,78 @@ server.listen(PORT);
 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = require("express");
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = require("lodash");
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = require("fs");
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = require("compression");
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports) {
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = require("webpack-dev-middleware");
+"use strict";
+Object.defineProperty(exports,'__esModule',{value:true});var _react=__webpack_require__(0);var _react2=_interopRequireDefault(_react);var _reactRedux=__webpack_require__(2);var _reactRouterDom=__webpack_require__(1);var _store=__webpack_require__(14);var _store2=_interopRequireDefault(_store);var _AsyncRoute=__webpack_require__(17);var _AsyncRoute2=_interopRequireDefault(_AsyncRoute);var _FourOhFour=__webpack_require__(18);var _FourOhFour2=_interopRequireDefault(_FourOhFour);var _data=__webpack_require__(19);var _data2=_interopRequireDefault(_data);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}var App=function App(){return _react2.default.createElement(_reactRedux.Provider,{store:_store2.default},_react2.default.createElement('div',{className:'app'},_react2.default.createElement(_reactRouterDom.Switch,null,_react2.default.createElement(_reactRouterDom.Route,{exact:true,path:'/',component:function component(props){return _react2.default.createElement(_AsyncRoute2.default,{props:props,loadingPromise:Promise.resolve().then(function(){return __webpack_require__(20)})})}}),_react2.default.createElement(_reactRouterDom.Route,{path:'/search',component:function component(props){return _react2.default.createElement(_AsyncRoute2.default,{props:Object.assign({shows:_data2.default.shows},props),loadingPromise:Promise.resolve().then(function(){return __webpack_require__(22)})})}}),_react2.default.createElement(_reactRouterDom.Route,{path:'/details/:id',render:function render(props){var shows=_data2.default.shows.filter(function(show){return props.match.params.id===show.imdbID});return _react2.default.createElement(_AsyncRoute2.default,{props:Object.assign({show:shows[0]},props),loadingPromise:Promise.resolve().then(function(){return __webpack_require__(24)})})}}),_react2.default.createElement(_reactRouterDom.Route,{component:_FourOhFour2.default}))))};var _default=App;exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(App,'App','D:/Workspace/Webdev/netflix/js/App.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/App.jsx')}();;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports,'__esModule',{value:true});var _typeof=typeof Symbol==='function'&&typeof Symbol.iterator==='symbol'?function(obj){return typeof obj}:function(obj){return obj&&typeof Symbol==='function'&&obj.constructor===Symbol&&obj!==Symbol.prototype?'symbol':typeof obj};var _redux=__webpack_require__(4);var _reduxThunk=__webpack_require__(15);var _reduxThunk2=_interopRequireDefault(_reduxThunk);var _reducers=__webpack_require__(16);var _reducers2=_interopRequireDefault(_reducers);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}var store=(0,_redux.createStore)(_reducers2.default,(0,_redux.compose)((0,_redux.applyMiddleware)(_reduxThunk2.default),(typeof window==='undefined'?'undefined':_typeof(window))==='object'&&typeof window.devToolsExtension!=='undefined'?window.devToolsExtension():function(f){return f}));var _default=store;exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(store,'store','D:/Workspace/Webdev/netflix/js/redux/store.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/redux/store.jsx')}();;
 
 /***/ }),
 /* 15 */
 /***/ (function(module, exports) {
 
-module.exports = require("webpack-hot-middleware");
+module.exports = require("redux-thunk");
 
 /***/ }),
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(__dirname) {const path = __webpack_require__(17);
-const webpack = __webpack_require__(4);
-const nodeExternals = __webpack_require__(18);
-
-const devPort = 9090;
-const config = {
-  context: __dirname,
-  entry: [
-    'react-hot-loader/patch',
-    `webpack-dev-server/client?http://localhost:${devPort}`,
-    'webpack/hot/only-dev-server',
-    './js/ClientApp.jsx',
-  ],
-  devtool: 'cheap-module-eval-source-map',
-  output: {
-    path: path.resolve(__dirname, 'public/js/'),
-    filename: '[name]-bundle.js',
-    publicPath: '/public/js/',
-  },
-  devServer: {
-    hot: true,
-    publicPath: '/public/js/',
-    historyApiFallback: true,
-    port: devPort,
-  },
-  resolve: {
-    extensions: ['.js', '.jsx', '.json'],
-  },
-  stats: {
-    colors: true,
-    reasons: true,
-    chunks: true,
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-  ],
-  module: {
-    rules: [
-      {
-        enforce: 'pre',
-        test: /\.(jsx|js)?$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
-      {
-        include: [
-          path.resolve(__dirname, 'js'),
-          path.resolve('node_modules/preact-compat/src'),
-        ],
-        test: /\.(jsx|js)?$/,
-        loader: 'babel-loader',
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              url: false,
-            },
-          },
-        ],
-      },
-    ],
-  },
-};
-if (process.env.NODE_ENV === 'server') {
-  config.target = 'node';
-  config.externals = [nodeExternals()];
-  config.entry = './ServerRender/server.js';
-  config.output = {
-    path: path.resolve(__dirname, 'ServerRender'),
-    filename: 'served-server.js',
-    libraryTarget: 'commonjs2',
-  };
-  delete config.devtool;
-  delete config.devServer;
-  config.stats.chunks = false;
-  config.resolve.alias = {
-    react: 'preact-compat',
-    'react-dom': 'preact-compat',
-  };
-  config.plugins = [];
-}
-if (process.env.NODE_ENV === 'development') {
-  config.entry = [
-    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-    './js/ClientApp.jsx',
-  ];
-}
-if (process.env.NODE_ENV === 'production') {
-  config.entry = './js/ClientApp.jsx';
-  delete config.devtool;
-  delete config.devServer;
-  config.stats.chunks = false;
-  config.resolve.alias = {
-    react: 'preact-compat',
-    'react-dom': 'preact-compat',
-  };
-  config.plugins = [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"',
-      },
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      comments: false,
-    }),
-  ];
-}
-module.exports = config;
-
-/* WEBPACK VAR INJECTION */}.call(exports, "/"))
+"use strict";
+Object.defineProperty(exports,'__esModule',{value:true});var _redux=__webpack_require__(4);var _actions=__webpack_require__(5);var searchTerm=function searchTerm(){var state=arguments.length>0&&arguments[0]!==undefined?arguments[0]:'';var action=arguments[1];return action.type===_actions.SET_SEARCH_TERM?action.searchTerm:state};var apiData=function apiData(){var _ref;var state=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};var action=arguments[1];return action.type===_actions.ADD_API_DATA?(_ref={},_ref[action.apiData.imdbID]=action.apiData,_ref):state};var brandName=function brandName(){var state=arguments.length>0&&arguments[0]!==undefined?arguments[0]:'Client Videos';var action=arguments[1];return action.type===_actions.CHANGE_BRAND?action.brand:state};var rootReducer=(0,_redux.combineReducers)({searchTerm:searchTerm,apiData:apiData,brandName:brandName});var _default=rootReducer;exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(searchTerm,'searchTerm','D:/Workspace/Webdev/netflix/js/redux/reducers.jsx');__REACT_HOT_LOADER__.register(apiData,'apiData','D:/Workspace/Webdev/netflix/js/redux/reducers.jsx');__REACT_HOT_LOADER__.register(brandName,'brandName','D:/Workspace/Webdev/netflix/js/redux/reducers.jsx');__REACT_HOT_LOADER__.register(rootReducer,'rootReducer','D:/Workspace/Webdev/netflix/js/redux/reducers.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/redux/reducers.jsx')}();;
 
 /***/ }),
 /* 17 */
-/***/ (function(module, exports) {
-
-module.exports = require("path");
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-module.exports = require("webpack-node-externals");
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports,'__esModule',{value:true});var _react=__webpack_require__(0);var _react2=_interopRequireDefault(_react);var _reactRedux=__webpack_require__(2);var _reactRouterDom=__webpack_require__(1);var _store=__webpack_require__(20);var _store2=_interopRequireDefault(_store);var _AsyncRoute=__webpack_require__(23);var _AsyncRoute2=_interopRequireDefault(_AsyncRoute);var _FourOhFour=__webpack_require__(24);var _FourOhFour2=_interopRequireDefault(_FourOhFour);var _data=__webpack_require__(25);var _data2=_interopRequireDefault(_data);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}var App=function App(){return _react2.default.createElement(_reactRedux.Provider,{store:_store2.default},_react2.default.createElement('div',{className:'app'},_react2.default.createElement(_reactRouterDom.Switch,null,_react2.default.createElement(_reactRouterDom.Route,{exact:true,path:'/',component:function component(props){return _react2.default.createElement(_AsyncRoute2.default,{props:props,loadingPromise:Promise.resolve().then(function(){return __webpack_require__(26)})})}}),_react2.default.createElement(_reactRouterDom.Route,{path:'/search',component:function component(props){return _react2.default.createElement(_AsyncRoute2.default,{props:Object.assign({shows:_data2.default.shows},props),loadingPromise:Promise.resolve().then(function(){return __webpack_require__(28)})})}}),_react2.default.createElement(_reactRouterDom.Route,{path:'/details/:id',render:function render(props){var shows=_data2.default.shows.filter(function(show){return props.match.params.id===show.imdbID});return _react2.default.createElement(_AsyncRoute2.default,{props:Object.assign({show:shows[0]},props),loadingPromise:Promise.resolve().then(function(){return __webpack_require__(30)})})}}),_react2.default.createElement(_reactRouterDom.Route,{component:_FourOhFour2.default}))))};var _default=App;exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(App,'App','D:/Workspace/Webdev/netflix/js/App.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/App.jsx')}();;
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports,'__esModule',{value:true});var _typeof=typeof Symbol==='function'&&typeof Symbol.iterator==='symbol'?function(obj){return typeof obj}:function(obj){return obj&&typeof Symbol==='function'&&obj.constructor===Symbol&&obj!==Symbol.prototype?'symbol':typeof obj};var _redux=__webpack_require__(5);var _reduxThunk=__webpack_require__(21);var _reduxThunk2=_interopRequireDefault(_reduxThunk);var _reducers=__webpack_require__(22);var _reducers2=_interopRequireDefault(_reducers);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}var store=(0,_redux.createStore)(_reducers2.default,(0,_redux.compose)((0,_redux.applyMiddleware)(_reduxThunk2.default),(typeof window==='undefined'?'undefined':_typeof(window))==='object'&&typeof window.devToolsExtension!=='undefined'?window.devToolsExtension():function(f){return f}));var _default=store;exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(store,'store','D:/Workspace/Webdev/netflix/js/redux/store.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/redux/store.jsx')}();;
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-thunk");
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports,'__esModule',{value:true});var _redux=__webpack_require__(5);var _actions=__webpack_require__(6);var searchTerm=function searchTerm(){var state=arguments.length>0&&arguments[0]!==undefined?arguments[0]:'';var action=arguments[1];return action.type===_actions.SET_SEARCH_TERM?action.searchTerm:state};var apiData=function apiData(){var _ref;var state=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};var action=arguments[1];return action.type===_actions.ADD_API_DATA?(_ref={},_ref[action.apiData.imdbID]=action.apiData,_ref):state};var brandName=function brandName(){var state=arguments.length>0&&arguments[0]!==undefined?arguments[0]:'Client Videos';var action=arguments[1];return action.type===_actions.CHANGE_BRAND?action.brand:state};var rootReducer=(0,_redux.combineReducers)({searchTerm:searchTerm,apiData:apiData,brandName:brandName});var _default=rootReducer;exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(searchTerm,'searchTerm','D:/Workspace/Webdev/netflix/js/redux/reducers.jsx');__REACT_HOT_LOADER__.register(apiData,'apiData','D:/Workspace/Webdev/netflix/js/redux/reducers.jsx');__REACT_HOT_LOADER__.register(brandName,'brandName','D:/Workspace/Webdev/netflix/js/redux/reducers.jsx');__REACT_HOT_LOADER__.register(rootReducer,'rootReducer','D:/Workspace/Webdev/netflix/js/redux/reducers.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/redux/reducers.jsx')}();;
-
-/***/ }),
-/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports,'__esModule',{value:true});var _react=__webpack_require__(0);var _react2=_interopRequireDefault(_react);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function')}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called')}return call&&(typeof call==='object'||typeof call==='function')?call:self}function _inherits(subClass,superClass){if(typeof superClass!=='function'&&superClass!==null){throw new TypeError('Super expression must either be null or a function, not '+typeof superClass)}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass}var AsyncRoute=function(_Component){_inherits(AsyncRoute,_Component);function AsyncRoute(){var _temp,_this,_ret;_classCallCheck(this,AsyncRoute);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key]}return _ret=(_temp=(_this=_possibleConstructorReturn(this,_Component.call.apply(_Component,[this].concat(args))),_this),_this.state={loaded:false},_this.component=null,_temp),_possibleConstructorReturn(_this,_ret)}AsyncRoute.prototype.componentDidMount=function componentDidMount(){var _this2=this;this.props.loadingPromise.then(function(module){_this2.component=module.default;_this2.setState({loaded:true})})};AsyncRoute.prototype.render=function render(){if(this.state.loaded){return _react2.default.createElement(this.component,this.props.props)}return _react2.default.createElement('h1',null,'Loading...')};return AsyncRoute}(_react.Component);var _default=AsyncRoute;exports.default=_default;;var _temp2=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(AsyncRoute,'AsyncRoute','D:/Workspace/Webdev/netflix/js/AsyncRoute.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/AsyncRoute.jsx')}();;
 
 /***/ }),
-/* 24 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports,'__esModule',{value:true});var _react=__webpack_require__(0);var _react2=_interopRequireDefault(_react);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}var FourOhFour=function FourOhFour(){return _react2.default.createElement('h1',null,'404!')};var _default=FourOhFour;exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(FourOhFour,'FourOhFour','D:/Workspace/Webdev/netflix/js/FourOhFour.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/FourOhFour.jsx')}();;
 
 /***/ }),
-/* 25 */
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -658,38 +501,38 @@ module.exports = {
 };
 
 /***/ }),
-/* 26 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports,'__esModule',{value:true});var _react=__webpack_require__(0);var _react2=_interopRequireDefault(_react);var _reactRouterDom=__webpack_require__(1);var _reactRedux=__webpack_require__(2);var _actionCreators=__webpack_require__(3);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function')}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called')}return call&&(typeof call==='object'||typeof call==='function')?call:self}function _inherits(subClass,superClass){if(typeof superClass!=='function'&&superClass!==null){throw new TypeError('Super expression must either be null or a function, not '+typeof superClass)}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass}var Landing=function(_Component){_inherits(Landing,_Component);function Landing(){var _temp,_this,_ret;_classCallCheck(this,Landing);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key]}return _ret=(_temp=(_this=_possibleConstructorReturn(this,_Component.call.apply(_Component,[this].concat(args))),_this),_this.handleSetSearchTerm=function(){var _this2;return(_this2=_this).__handleSetSearchTerm__REACT_HOT_LOADER__.apply(_this2,arguments)},_this.handleSearchSubmit=function(){var _this3;return(_this3=_this).__handleSearchSubmit__REACT_HOT_LOADER__.apply(_this3,arguments)},_temp),_possibleConstructorReturn(_this,_ret)}Landing.prototype.__handleSetSearchTerm__REACT_HOT_LOADER__=function __handleSetSearchTerm__REACT_HOT_LOADER__(e){this.props.setSearchTerm(e.target.value)};Landing.prototype.__handleSearchSubmit__REACT_HOT_LOADER__=function __handleSearchSubmit__REACT_HOT_LOADER__(e){e.preventDefault();this.props.history.push('/search')};Landing.prototype.render=function render(){return _react2.default.createElement('div',{className:'landing'},_react2.default.createElement('h1',null,this.props.brandName),_react2.default.createElement('form',{onSubmit:this.handleSearchSubmit},_react2.default.createElement('input',{type:'text',value:this.props.searchTerm,onChange:this.handleSetSearchTerm,placeholder:'Search'})),_react2.default.createElement(_reactRouterDom.Link,{to:'/search'},'or Browse All'))};return Landing}(_react.Component);var mapStateToProps=function mapStateToProps(state){return{searchTerm:state.searchTerm,brandName:state.brandName}};var mapDispatchToProps=function mapDispatchToProps(dispatch){return{setSearchTerm:function setSearchTerm(searchTerm){return dispatch((0,_actionCreators.setSearchTerm)(searchTerm))}}};var _default=(0,_reactRedux.connect)(mapStateToProps,mapDispatchToProps)(Landing);exports.default=_default;;var _temp2=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(Landing,'Landing','D:/Workspace/Webdev/netflix/js/Landing.jsx');__REACT_HOT_LOADER__.register(mapStateToProps,'mapStateToProps','D:/Workspace/Webdev/netflix/js/Landing.jsx');__REACT_HOT_LOADER__.register(mapDispatchToProps,'mapDispatchToProps','D:/Workspace/Webdev/netflix/js/Landing.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/Landing.jsx')}();;
 
 /***/ }),
-/* 27 */
+/* 21 */
 /***/ (function(module, exports) {
 
 module.exports = require("axios");
 
 /***/ }),
-/* 28 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports,'__esModule',{value:true});exports.Unwrapped=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key]}}}return target};var _react=__webpack_require__(0);var _react2=_interopRequireDefault(_react);var _reactRedux=__webpack_require__(2);var _ShowCard=__webpack_require__(29);var _ShowCard2=_interopRequireDefault(_ShowCard);var _Header=__webpack_require__(7);var _Header2=_interopRequireDefault(_Header);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}var Search=function Search(props){return _react2.default.createElement('div',{className:'search'},_react2.default.createElement(_Header2.default,{showSearch:true}),_react2.default.createElement('div',null,props.shows.filter(function(show){return(show.title+' '+show.description+' '+show.year).toLowerCase().indexOf(props.searchTerm.toLowerCase())>=0}).map(function(show){return _react2.default.createElement(_ShowCard2.default,_extends({key:show.imdbID},show))})))};var mapStateToProps=function mapStateToProps(state){return{searchTerm:state.searchTerm}};var Unwrapped=exports.Unwrapped=Search;var _default=(0,_reactRedux.connect)(mapStateToProps)(Search);exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(Search,'Search','D:/Workspace/Webdev/netflix/js/Search.jsx');__REACT_HOT_LOADER__.register(mapStateToProps,'mapStateToProps','D:/Workspace/Webdev/netflix/js/Search.jsx');__REACT_HOT_LOADER__.register(Unwrapped,'Unwrapped','D:/Workspace/Webdev/netflix/js/Search.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/Search.jsx')}();;
+Object.defineProperty(exports,'__esModule',{value:true});exports.Unwrapped=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key]}}}return target};var _react=__webpack_require__(0);var _react2=_interopRequireDefault(_react);var _reactRedux=__webpack_require__(2);var _ShowCard=__webpack_require__(23);var _ShowCard2=_interopRequireDefault(_ShowCard);var _Header=__webpack_require__(6);var _Header2=_interopRequireDefault(_Header);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}var Search=function Search(props){return _react2.default.createElement('div',{className:'search'},_react2.default.createElement(_Header2.default,{showSearch:true}),_react2.default.createElement('div',null,props.shows.filter(function(show){return(show.title+' '+show.description+' '+show.year).toLowerCase().indexOf(props.searchTerm.toLowerCase())>=0}).map(function(show){return _react2.default.createElement(_ShowCard2.default,_extends({key:show.imdbID},show))})))};var mapStateToProps=function mapStateToProps(state){return{searchTerm:state.searchTerm}};var Unwrapped=exports.Unwrapped=Search;var _default=(0,_reactRedux.connect)(mapStateToProps)(Search);exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(Search,'Search','D:/Workspace/Webdev/netflix/js/Search.jsx');__REACT_HOT_LOADER__.register(mapStateToProps,'mapStateToProps','D:/Workspace/Webdev/netflix/js/Search.jsx');__REACT_HOT_LOADER__.register(Unwrapped,'Unwrapped','D:/Workspace/Webdev/netflix/js/Search.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/Search.jsx')}();;
 
 /***/ }),
-/* 29 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports,'__esModule',{value:true});var _react=__webpack_require__(0);var _react2=_interopRequireDefault(_react);var _reactRouterDom=__webpack_require__(1);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function')}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called')}return call&&(typeof call==='object'||typeof call==='function')?call:self}function _inherits(subClass,superClass){if(typeof superClass!=='function'&&superClass!==null){throw new TypeError('Super expression must either be null or a function, not '+typeof superClass)}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass}var ShowCard=function(_Component){_inherits(ShowCard,_Component);function ShowCard(){_classCallCheck(this,ShowCard);return _possibleConstructorReturn(this,_Component.apply(this,arguments))}ShowCard.prototype.shouldComponentUpdate=function shouldComponentUpdate(){return false};ShowCard.prototype.render=function render(){return _react2.default.createElement(_reactRouterDom.Link,{to:'/details/'+this.props.imdbID},_react2.default.createElement('div',{className:'show-card'},_react2.default.createElement('img',{src:'./public/img/posters/'+this.props.poster,alt:this.props.title+' Show Poster'}),_react2.default.createElement('div',null,_react2.default.createElement('h3',null,this.props.title),_react2.default.createElement('h4',null,'(',this.props.year,')'),_react2.default.createElement('p',null,this.props.description))))};return ShowCard}(_react.Component);var _default=ShowCard;exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(ShowCard,'ShowCard','D:/Workspace/Webdev/netflix/js/ShowCard.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/ShowCard.jsx')}();;
 
 /***/ }),
-/* 30 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports,'__esModule',{value:true});var _react=__webpack_require__(0);var _react2=_interopRequireDefault(_react);var _reactRedux=__webpack_require__(2);var _actionCreators=__webpack_require__(3);var _Header=__webpack_require__(7);var _Header2=_interopRequireDefault(_Header);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function')}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called')}return call&&(typeof call==='object'||typeof call==='function')?call:self}function _inherits(subClass,superClass){if(typeof superClass!=='function'&&superClass!==null){throw new TypeError('Super expression must either be null or a function, not '+typeof superClass)}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass}var Details=function(_React$Component){_inherits(Details,_React$Component);function Details(){_classCallCheck(this,Details);return _possibleConstructorReturn(this,_React$Component.apply(this,arguments))}Details.prototype.componentDidMount=function componentDidMount(){if(!this.props.rating){this.props.getAPIDetails(this.props.show.imdbID)}};Details.prototype.render=function render(){var _props$show=this.props.show,title=_props$show.title,description=_props$show.description,year=_props$show.year,poster=_props$show.poster,trailer=_props$show.trailer;var rating=this.props.rating?_react2.default.createElement('h3',null,this.props.rating):_react2.default.createElement('img',{id:'spin',src:'/public/img/loading.png',alt:'loading indicator'});return _react2.default.createElement('div',{className:'details'},_react2.default.createElement(_Header2.default,null),_react2.default.createElement('section',null,_react2.default.createElement('h1',null,title),_react2.default.createElement('h2',null,'(',year,')'),rating,_react2.default.createElement('img',{alt:''+description,src:'/public/img/posters/'+poster}),_react2.default.createElement('p',null,description)),_react2.default.createElement('div',null,_react2.default.createElement('iframe',{title:'OK',src:'https://www.youtube-nocookie.com/embed/'+trailer+'?rel=0&amp;controls=0&amp;showinfo=0',frameBorder:'0',allowFullScreen:true})))};return Details}(_react2.default.Component);var mapStateToProps=function mapStateToProps(state,ownProps){var apiData=state.apiData[ownProps.show.imdbID]||{};return{rating:apiData.rating}};var mapDispatchToProps=function mapDispatchToProps(dispatch){return{getAPIDetails:function getAPIDetails(imdbID){return dispatch((0,_actionCreators.getAPIDetails)(imdbID))}}};var _default=(0,_reactRedux.connect)(mapStateToProps,mapDispatchToProps)(Details);exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(Details,'Details','D:/Workspace/Webdev/netflix/js/Details.jsx');__REACT_HOT_LOADER__.register(mapStateToProps,'mapStateToProps','D:/Workspace/Webdev/netflix/js/Details.jsx');__REACT_HOT_LOADER__.register(mapDispatchToProps,'mapDispatchToProps','D:/Workspace/Webdev/netflix/js/Details.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/Details.jsx')}();;
+Object.defineProperty(exports,'__esModule',{value:true});var _react=__webpack_require__(0);var _react2=_interopRequireDefault(_react);var _reactRedux=__webpack_require__(2);var _actionCreators=__webpack_require__(3);var _Header=__webpack_require__(6);var _Header2=_interopRequireDefault(_Header);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function')}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called')}return call&&(typeof call==='object'||typeof call==='function')?call:self}function _inherits(subClass,superClass){if(typeof superClass!=='function'&&superClass!==null){throw new TypeError('Super expression must either be null or a function, not '+typeof superClass)}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass}var Details=function(_React$Component){_inherits(Details,_React$Component);function Details(){_classCallCheck(this,Details);return _possibleConstructorReturn(this,_React$Component.apply(this,arguments))}Details.prototype.componentDidMount=function componentDidMount(){if(!this.props.rating){this.props.getAPIDetails(this.props.show.imdbID)}};Details.prototype.render=function render(){var _props$show=this.props.show,title=_props$show.title,description=_props$show.description,year=_props$show.year,poster=_props$show.poster,trailer=_props$show.trailer;var rating=this.props.rating?_react2.default.createElement('h3',null,this.props.rating):_react2.default.createElement('img',{id:'spin',src:'/public/img/loading.png',alt:'loading indicator'});return _react2.default.createElement('div',{className:'details'},_react2.default.createElement(_Header2.default,null),_react2.default.createElement('section',null,_react2.default.createElement('h1',null,title),_react2.default.createElement('h2',null,'(',year,')'),rating,_react2.default.createElement('img',{alt:''+description,src:'/public/img/posters/'+poster}),_react2.default.createElement('p',null,description)),_react2.default.createElement('div',null,_react2.default.createElement('iframe',{title:'OK',src:'https://www.youtube-nocookie.com/embed/'+trailer+'?rel=0&amp;controls=0&amp;showinfo=0',frameBorder:'0',allowFullScreen:true})))};return Details}(_react2.default.Component);var mapStateToProps=function mapStateToProps(state,ownProps){var apiData=state.apiData[ownProps.show.imdbID]||{};return{rating:apiData.rating}};var mapDispatchToProps=function mapDispatchToProps(dispatch){return{getAPIDetails:function getAPIDetails(imdbID){return dispatch((0,_actionCreators.getAPIDetails)(imdbID))}}};var _default=(0,_reactRedux.connect)(mapStateToProps,mapDispatchToProps)(Details);exports.default=_default;;var _temp=function(){if(typeof __REACT_HOT_LOADER__==='undefined'){return}__REACT_HOT_LOADER__.register(Details,'Details','D:/Workspace/Webdev/netflix/js/Details.jsx');__REACT_HOT_LOADER__.register(mapStateToProps,'mapStateToProps','D:/Workspace/Webdev/netflix/js/Details.jsx');__REACT_HOT_LOADER__.register(mapDispatchToProps,'mapDispatchToProps','D:/Workspace/Webdev/netflix/js/Details.jsx');__REACT_HOT_LOADER__.register(_default,'default','D:/Workspace/Webdev/netflix/js/Details.jsx')}();;
 
 /***/ })
 /******/ ]);

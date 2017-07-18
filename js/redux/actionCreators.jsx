@@ -12,7 +12,7 @@ export const addAPIData = apiData => ({
 });
 export const getAPIDetails = imdbID => dispatch =>
   axios
-    .get(`http://localhost:3000/${imdbID}`)
+    .get(`https://ratingsapiapp.herokuapp.com/${imdbID}`)
     .then((response: { data: { rating: string } }) =>
       dispatch(addAPIData(response.data))
     )

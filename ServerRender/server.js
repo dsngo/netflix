@@ -6,10 +6,10 @@ const { StaticRouter } = require('react-router-dom');
 const _ = require('lodash');
 const fs = require('fs');
 const compression = require('compression');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpack = require('webpack');
-const config = require('../webpack.config');
+// const webpackDevMiddleware = require('webpack-dev-middleware');
+// const webpackHotMiddleware = require('webpack-hot-middleware');
+// const webpack = require('webpack');
+// const config = require('../webpack.config');
 
 const PORT = process.env.PORT || 3030;
 const baseTemplate = fs.readFileSync('./index.html');
@@ -19,15 +19,15 @@ const App = require('../js/App').default;
 const server = express();
 server.use(compression());
 // Useful for testing server with hot module reload, can create lots of hashes
-if (process.env.NODE_ENV === 'development') {
-  const compiler = webpack(config);
-  server.use(
-    webpackDevMiddleware(compiler, {
-      publicPath: config.output.publicPath,
-    })
-  );
-  server.use(webpackHotMiddleware(compiler));
-}
+// if (process.env.NODE_ENV === 'development') {
+//   const compiler = webpack(config);
+//   server.use(
+//     webpackDevMiddleware(compiler, {
+//       publicPath: config.output.publicPath,
+//     })
+//   );
+//   server.use(webpackHotMiddleware(compiler));
+// }
 // Fallback to /public/ for static file serving
 server.use('/public/', express.static('public'));
 server.use((req, res) => {

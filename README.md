@@ -16,3 +16,4 @@
 >- [x] handle uncaught promise error in node environment
 >- [x] solve memory leaking on serverside rendering with babel register compiler
 >- [ ] todo: updating UI with semantic UI, updating database with MONGO
+>- [ ] todo: migrading to encodedURI from encodedURIComponent to increase requesting performance
