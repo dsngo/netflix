@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
-const devPort = 9090;
+const devPort = 8080;
 const config = {
   context: __dirname,
   entry: [

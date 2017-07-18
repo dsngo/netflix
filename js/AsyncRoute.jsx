@@ -6,6 +6,7 @@ class AsyncRoute extends Component {
     props: Object,
     loadingPromise: Object,
   };
+  component = null;
   state = { loaded: false };
   componentDidMount() {
     this.props.loadingPromise.then(module => {
@@ -13,7 +14,6 @@ class AsyncRoute extends Component {
       this.setState({ loaded: true });
     });
   }
-  component = null;
   render() {
     if (this.state.loaded) {
       return <this.component {...this.props.props} />;
