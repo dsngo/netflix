@@ -7,6 +7,7 @@ import { setSearchTerm } from './redux/actionCreators';
 class Landing extends Component {
   props: {
     searchTerm: string,
+    brandName: string,
     setSearchTerm: Function,
     history: RouterHistory,
   };
@@ -20,7 +21,9 @@ class Landing extends Component {
   render() {
     return (
       <div className="landing">
-        <h1>svideo</h1>
+        <h1>
+          {this.props.brandName}
+        </h1>
         <form onSubmit={this.handleSearchSubmit}>
           <input
             type="text"
@@ -35,7 +38,10 @@ class Landing extends Component {
   }
 }
 
-const mapStateToProps = state => ({ searchTerm: state.searchTerm });
+const mapStateToProps = state => ({
+  searchTerm: state.searchTerm,
+  brandName: state.brandName,
+});
 const mapDispatchToProps = dispatch => ({
   setSearchTerm: searchTerm => dispatch(setSearchTerm(searchTerm)),
 });

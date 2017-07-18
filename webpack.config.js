@@ -73,9 +73,9 @@ const config = {
 if (process.env.NODE_ENV === 'server') {
   config.target = 'node';
   config.externals = [nodeExternals()];
-  config.entry = './server.js';
+  config.entry = './ServerRender/server.js';
   config.output = {
-    path: __dirname,
+    path: path.resolve(__dirname, 'ServerRender'),
     filename: 'served-server.js',
     libraryTarget: 'commonjs2',
   };

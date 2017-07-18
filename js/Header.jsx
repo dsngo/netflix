@@ -6,6 +6,7 @@ import { setSearchTerm } from './redux/actionCreators';
 const Header = (props: {
   setSearchTerm: Function,
   showSearch: Boolean,
+  brandName: string,
   searchTerm: string,
 }) => {
   const utilSpace = props.showSearch
@@ -22,7 +23,7 @@ const Header = (props: {
     <header>
       <h1>
         <Link to="/" onClick={() => props.setSearchTerm('')}>
-          svideo
+          {props.brandName}
         </Link>
       </h1>
       {utilSpace}
@@ -32,6 +33,7 @@ const Header = (props: {
 
 const mapStateToProps = state => ({
   searchTerm: state.searchTerm,
+  brandName: state.brandName,
 });
 const mapDispatchToProps = dispatch => ({
   setSearchTerm: searchTerm => dispatch(setSearchTerm(searchTerm)),

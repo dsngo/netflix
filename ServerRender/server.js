@@ -9,12 +9,12 @@ const compression = require('compression');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpack = require('webpack');
-const config = require('./webpack.config');
+const config = require('../webpack.config');
 
 const PORT = process.env.PORT || 3030;
 const baseTemplate = fs.readFileSync('./index.html');
 const template = _.template(baseTemplate);
-const App = require('./js/App').default;
+const App = require('../js/App').default;
 
 const server = express();
 server.use(compression());
