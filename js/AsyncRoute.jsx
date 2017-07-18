@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loading from './Loading';
 
 class AsyncRoute extends Component {
   props: {
@@ -17,7 +18,11 @@ class AsyncRoute extends Component {
     if (this.state.loaded) {
       return <this.component {...this.props.props} />;
     }
-    return <h1>Loading...</h1>;
+    return (
+      <h1>
+        <Loading />
+      </h1>
+    );
   }
 }
 
