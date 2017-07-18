@@ -27,7 +27,7 @@ const App = () =>
         />
         <Route
           path="/details/:id"
-          render={(props: { match: Match }) => {
+          component={(props: { match: Match }) => {
             const shows = preload.shows.filter(
               show => props.match.params.id === show.imdbID
             );
