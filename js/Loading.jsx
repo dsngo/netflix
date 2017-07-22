@@ -10,7 +10,7 @@ class Loading extends Component {
     speed: number,
   };
   static defaultProps = {
-    text: 'Loading...',
+    text: 'Loading',
     speed: 300,
   };
   state = { text: this.props.text };
